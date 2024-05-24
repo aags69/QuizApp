@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lexend:wght@100..900&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: .1s;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background: #669bbc;
+  font-family: "Afacad", sans-serif;
+}
+
+body.dark {
+  background: #181818;
+  color: #fff;
+
+}
+
+body .navBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.navBar .menu {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.mode {
+  float: right;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.mode a {
+  font-size: 30px;
+  cursor: pointer;
+  padding: 15px;
+}
+
+.mainContainer {
+  /* padding: 2%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.jokeContainer {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+  height: 100px;
+  font-size: 25px;
+  border-radius: 10px;
+  width: 50%;
+  padding: 15px;
+  transition: 0.5s height ease-in-out;
+
+}
+
+#btn {
+  padding: 10px;
+  border-radius: 7px;
+  background: none;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  font-size: 15px;
+  font-weight: 300;
+  cursor: pointer;
+  border: 1px solid #242424;
+  transition: color 0.5s linear;
+}
+
+
+#btn:hover {
+  color: white;
+}
+
+#btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #1f1f1f;
+  z-index: -1;
+  transition: transform 0.5s;
+  transform-origin: 0 0;
+  transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+  transform: scaleX(0);
+  border-radius: 7px;
+}
+
+#btn:hover::before {
+  transform: scaleX(1);
+}
+.btn{
+  margin-top: 15px;
+  letter-spacing: 2px;
+}
+.jokeContainer #joke {
+  padding: 50px 0px;
+  font-size: 25px;
+  font-weight: 200;
+  text-align: center;
+  position: relative;
+  transition: 0.2s width ease-in-out;
+  visibility: hidden;
+}
+ #btn.active {
+   visibility: hidden;
+   padding: 0;
+ }
+
+.scoreContainer{
+  visibility: hidden;
+}
+
+.jokeContainer #joke.active,
+.cross.active,
+.typeHolder.active, .scoreContainer.active{
+  visibility: visible;
+}
+
+.cross {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.cross i {
+  transition: .1s ease-in-out;
+}
+
+.cross i:hover {
+  scale: 1.15;
+  color: #c70000;
+}
+
+.mainArea {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  /* padding: 10px; */
+  visibility: hidden;
+}
+
+.mainArea.active {
+  visibility: visible;
+}
+
+p.questionHolder {
+  padding: 0 0 10px 0;
+}
+
+ul {
+  list-style: none;
+
+}
+
+ul.first {
+  font-size: 20px;
+}
+
+.first li {
+  background: #292929;
+  border-radius: 25px;
+
+  /* width: 40%; */
+  padding: 6px;
+  margin: 15px;
+  cursor: pointer;
+  /* display: flex; */
+}
+
+/* .first li:hover {
+  background: #121212;
+} */
+
+.first li:active{
+  transform: scale(0.97);
+}
+
+li.selected{
+  color: black;
+  background-color: #669bbc;
+}
+
+li.sahi{
+  color: white;
+  background-color: green;
+}
+li.galat{
+  color: white;
+  background-color: #a70202;
+}
+
+p.right{
+  color: #259325;
+}
+p.wrong{
+  color: #b51c1c;
+}
+
+@media (max-width: 600px){
+  .jokeContainer{
+    width: 81%;
+  }
+  p.questionHolder {
+      font-size: 21px;
+  }
+  ul.first {
+      font-size: 18px;
+  }
+}
